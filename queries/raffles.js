@@ -1,5 +1,7 @@
 const db = require("../db/dbConfig.js");
 
+//QUERIES
+/*INDEX*/
 const getAllRaffles = async () => {
   try {
     const allRaffles = await db.any("SELECT * FROM raffles");
@@ -9,7 +11,7 @@ const getAllRaffles = async () => {
   }
 };
 
-//SHOW ONE
+/*SHOW*/
 const getRaffle = async (id) => {
   try {
     const oneRaffle = await db.one("SELECT * FROM raffles WHERE id=$1", id);
@@ -19,7 +21,7 @@ const getRaffle = async (id) => {
   }
 };
 
-//CREATE
+/*CREATE*/
 const newRaffle = async (raffle) => {
   try {
     //throw more error handling and validation
@@ -30,7 +32,7 @@ const newRaffle = async (raffle) => {
   }
 };
 
-//DELETE
+/*DELETE*/
 const deleteRaffle = async (id) => {
   try {
     const deleted = await db.one("DELETE FROM raffles WHERE id=$1 RETURNING *;", id);
@@ -40,7 +42,7 @@ const deleteRaffle = async (id) => {
   }
 };
 
-//UPDATE
+/*UPDATE*/
 const updateRaffle = async (id, raffle) => {
   try {
     const updatedRaffle = await db.one("UPDATE raffles SET rafflename=$1, dates=$2, is_winner=$3, secretcode=$4 WHERE id=$5 RETURNING *", [raffle.rafflename, raffle.dates, raffle.is_winner, raffle.secretcode, id]);
