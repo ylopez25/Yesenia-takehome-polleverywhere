@@ -11,7 +11,7 @@ CREATE TABLE raffles(
     rafflename TEXT,
    -- firstname TEXT,
    -- lastname TEXT,
-    date TEXT NOT NULL,
+    dates TEXT NOT NULL,
    -- email TEXT,
     --phone numeric(10),
     is_winner BOOLEAN,

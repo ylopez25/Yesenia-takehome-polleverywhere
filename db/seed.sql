@@ -1,8 +1,8 @@
 \c raffles_dev;
 
 INSERT INTO raffles
-(rafflename,date, secretcode, is_winner)
+(rafflename,dates, is_winner, secretcode)
 VALUES
-('Yesenia Raffle', 'January 25, 2023', 'polleverywhere', true),
-('Mollys Raffle', '02/14/2023', 'secretvalentine', false),
-('Mikes Raffle', '12/23/2023', 'secretsanta', true)
+('Yesenia Raffle', 'January 25, 2023', true, 'Polleverywhere'),
+('Mollys Raffle', 'January 25, 2023', false, 'secretvalentine'),
+('Mikes Raffle', 'January 25, 2023', true, 'secretsanta')
