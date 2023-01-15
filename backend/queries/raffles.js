@@ -32,16 +32,6 @@ const newRaffle = async (raffle) => {
   }
 };
 
-/*DELETE*/
-const deleteRaffle = async (id) => {
-  try {
-    const deleted = await db.one("DELETE FROM raffles WHERE id=$1 RETURNING *;", id);
-    return deleted;
-  } catch (err) {
-    return err;
-  }
-};
-
 /*UPDATE*/
 const updateRaffle = async (id, raffle) => {
   try {
@@ -52,10 +42,20 @@ const updateRaffle = async (id, raffle) => {
   }
 };
 
+/*DELETE*/
+const deleteRaffle = async (id) => {
+  try {
+    const deleted = await db.one("DELETE FROM raffles WHERE id=$1 RETURNING *", id);
+    return deleted;
+  } catch (err) {
+    return err;
+  }
+};
+
 module.exports = {
   getAllRaffles,
   getRaffle,
   newRaffle,
-  deleteRaffle,
   updateRaffle,
+  deleteRaffle,
 };

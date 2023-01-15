@@ -7,7 +7,8 @@ const { getAllParticipants, getParticipant, newParticipant, updateParticipant, d
 /*INDEX*/
 participants.get("/", async (req, res) => {
   try {
-    const allParticipants = await getAllParticipants();
+    const { raffleId } = req.params;
+    const allParticipants = await getAllParticipants(raffleId);
     res.json(allParticipants);
   } catch (err) {
     res.status(404).json(err);
@@ -16,9 +17,10 @@ participants.get("/", async (req, res) => {
 
 /*SHOW*/
 participants.get("/:id", async (req, res) => {
-  const { id } = req.params;
   try {
-    const participant = await getParticipant(id);
+    const { raffleId } = req.params;
+    const { id } = req.params;
+    const participant = await getParticipant(id, raffleId);
     if (participant.id) {
       res.json(participant);
     } else {
@@ -33,23 +35,23 @@ participants.get("/:id", async (req, res) => {
 /*CREATE*/
 participants.post("/", async (req, res) => {
   try {
-    const participant = await newParticipant(req.body);
-    if (participant.id) {
-      res.json(participant);
-    } else {
-      console.log(`Database error: ${participant}`);
-      throw `Error dding ${req.body} to the database.`;
-    }
+    const { raffleId } = req.params;
+    const participant = await newParticipant(req.body, raffleId);
+    res.status(200).json({
+      success: true,
+      payload: participant,
+    });
   } catch (err) {
-    res.status(404).json({ err: err });
+    res.status(404).json({ err: err, message: message });
   }
 });
 
 /*UPDATE*/
 participants.put("/:id", async (req, res) => {
-  const { id } = req.params;
   try {
-    const updatedParticipant = await updateParticipant(id, req.body);
+    const { id } = req.params;
+    const { raffleId } = req.params;
+    const updatedParticipant = await updateParticipant(id, req.body, raffleId);
     if (updatedParticipant.id) {
       res.status(200).json(updatedParticipant);
     } else {
@@ -62,9 +64,10 @@ participants.put("/:id", async (req, res) => {
 
 /*DELETE*/
 participants.delete("/:id", async (req, res) => {
-  const { id } = req.params;
   try {
-    const deletedParticipant = await deleteParticipant(id);
+    const { id } = req.params;
+    const { raffleId } = req.params;
+    const deletedParticipant = await deleteParticipant(id, raffleId);
     if (deletedParticipant.id) {
       res.json(deletedParticipant);
     } else {

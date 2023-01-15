@@ -1,8 +1,10 @@
 //DEPENDENCES
 const express = require("express");
-const raffles = express.Router({ mergeParams: true});
-const { getAllRaffles, getRaffle, newRaffle, updateRaffle, deleteRaffle} = require("../queries/raffles.js");
+const raffles = express.Router({ mergeParams: true });
+const participantsController = require("./participantsController");
+const { getAllRaffles, getRaffle, newRaffle, updateRaffle, deleteRaffle } = require("../queries/raffles.js");
 
+// const db= require('..db/dbConfig.js');
 //ROUTES
 /*INDEX*/
 raffles.get("/", async (req, res) => {
@@ -18,7 +20,7 @@ raffles.get("/:id", async (req, res) => {
     if (raffle.id) {
       res.json(raffle);
     } else {
-      console.log(`Database rror: ${raffle}`);
+      console.log(`Database error: ${raffle}`);
       throw `No existing raffle ${id}!`;
     }
   } catch (err) {
@@ -70,5 +72,7 @@ raffles.delete("/:id", async (req, res) => {
     res.status(404).json({ err: err, message: err.message });
   }
 });
+
+raffles.use("/:raffleId/participants", participantsController);
 
 module.exports = raffles;
