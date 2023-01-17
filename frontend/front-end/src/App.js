@@ -7,16 +7,17 @@ import Home from "./Pages/Home";
 import Index from "./Pages/Index";
 import New from "./Pages/NewForm.js";
 import Show from "./Pages/Show";
-import Edit from './Pages/Edit';
-import Win from './Pages/Win';
-import './App.css'
+import Edit from "./Pages/Edit";
+import Win from "./Pages/Win";
+import "./App.css";
+
 // COMPONENTS
-import NavBar from './Components/Navbar';
+import NavBar from "./Components/Navbar";
 
 function App() {
   return (
     <div className="App">
-        <Router>
+      <Router>
         <NavBar />
         <main>
           <Routes>
@@ -24,7 +25,7 @@ function App() {
             <Route path="/raffles" element={<Index />} />
             <Route path="/raffles/register" element={<New />} />
             <Route exact path="/raffles/:id" element={<Show />} />
-            <Route path="/raffles/:id/winner" element={<Win/>}/>
+            <Route path="/raffles/:id/winner" element={<Win />} />
             <Route path="/raffles/:id/edit" element={<Edit />} />
             <Route path="*" element={<FourOFour />} />
           </Routes>

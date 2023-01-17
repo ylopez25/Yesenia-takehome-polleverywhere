@@ -1,8 +1,5 @@
 import Raffles from "../Components/Raffles";
 
-function Index() {
-    
+export default function Index() {
   return <Raffles />;
 }
-
-export default Index;

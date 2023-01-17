@@ -1,7 +1,5 @@
 import RaffleDetails from "../Components/RaffleDetails";
 
-function Show() {
+export default function Show() {
   return <RaffleDetails />;
 }
-
-export default Show;

@@ -1,7 +1,5 @@
 import RaffleNewForm from "../Components/RaffleNewForm";
 
-function New() {
+export default function New() {
   return <RaffleNewForm />;
 }
-
-export default New;

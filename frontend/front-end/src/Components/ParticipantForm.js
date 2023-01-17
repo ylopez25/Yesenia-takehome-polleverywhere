@@ -43,27 +43,13 @@ export default function ParticipantForm(props) {
       <h1>Register to Raffle:</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="firstname">First Name:</label>
-        <input
-          id="firstname"
-          value={participant.firstname}
-          type="text"
-          onChange={handleTextChange}
-          placeholder="First name"
-          required
-        />
+        <input id="firstname" value={participant.firstname} type="text" onChange={handleTextChange} placeholder="First name" required />
         <label htmlFor="lastname">Last Name:</label>
-        <input
-          id="lastname"
-          type="text"
-          required
-          value={participant.lastname}
-          onChange={handleTextChange}
-        />
+        <input id="lastname" type="text" required value={participant.lastname} onChange={handleTextChange} />
         <label htmlFor="email">Email:</label>
         <input
           id="email"
           type="text"
-        //   name="rating"
           required
           value={participant.email}
           onChange={handleTextChange}
@@ -72,7 +58,6 @@ export default function ParticipantForm(props) {
         <input
           id="phone"
           type="text"
-        //   name="content"
           value={participant.phone}
           placeholder="optional"
           onChange={handleTextChange}
@@ -83,4 +68,4 @@ export default function ParticipantForm(props) {
     </div>
   );
 }
-//change placeholder of form
+

@@ -1,11 +1,9 @@
 import Winner from "../Components/Winner";
 
-function Win() {
+export default function Win() {
   return (
     <div className="New Edit">
       <Winner />
     </div>
   );
 }
-
-export default Win;
