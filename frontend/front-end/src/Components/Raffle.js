@@ -7,7 +7,7 @@ export default function Raffle({ raffle }) {
       <ul>
         <li>Created on: {raffle.dates}</li>
         <li>Winner ID: {raffle.is_winner ? " 3" : "No Winner yet"}</li>
-        <li>Raffled on : {raffle.dates}</li>
+        <li>Raffled on : {raffle.is_winner ? raffle.dates : 'Not raffled yet'}</li>
       </ul>
     </div>
   );

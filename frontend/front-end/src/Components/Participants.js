@@ -8,6 +8,7 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function Participants() {
   const [participants, setParticipants] = useState([]);
+  const [writing, setWriting] = useState('');
   let { id } = useParams();
 
   useEffect(() => {
@@ -16,9 +17,16 @@ export default function Participants() {
     });
   }, [id, participants]);
 
-  /*CREATE SUM FUNCTION FOR PARTICIPANT TOTAL*/
 
   /*ADD FILTER FUNCTION FOR SEARCH*/
+  const search = (e) => {
+    setWriting(e.target.value)
+  }
+
+  const filteredData = (writing) => {
+    let text = writing.toLowerCase();
+    return participants.filter(el => el.firstname.toLowerCase().includes(text))
+  }
 
   /*POST*/
   const handleAdd = (newParticipant) => {
@@ -68,11 +76,10 @@ export default function Participants() {
   return (
     <section className="Participants">
       <ParticipantForm handleSubmit={handleAdd} />
-      <h1>Participants: total</h1>
+      {participants.length > 1 ? (  <h1>Total Participants: {participants.length}</h1>) : (  <h1>Total Participant: {participants.length}</h1>)}
       <label>Search</label>
-      <input type="text" />
-
-      {participants.map((participant) => (
+      <input type="text" value={writing} onChange={search} placeholder="Search by first name"/>
+      {filteredData(writing).map((participant) => (
         <Participant key={participant.id} participant={participant} handleSubmit={handleEdit} handleDelete={handleDelete} />
       ))}
     </section>

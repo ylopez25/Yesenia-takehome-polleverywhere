@@ -44,8 +44,13 @@ export default function RaffleNewForm() {
       <form onSubmit={handleSubmit}>
         <label htmlFor="rafflename">Raffle Name:</label>
         <input id="rafflename" value={raffle.rafflename} type="text" onChange={handleTextChange} placeholder="NAME OF" />
-        <label htmlFor="healthy">Secret Code:</label>
-        <input id="healthy" type="text" value={raffle.secretcode} onChange={handleCheckbox} placeholder="SECRET CODE" />
+        <label htmlFor="secretcode">Secret Code:</label>
+        <input id="secretcode" type="text" value={raffle.secretcode} onChange={handleTextChange} placeholder="SECRET CODE" />
+        <label htmlFor="dates">Today's Date</label>
+        <input type="text" id="dates" value={raffle.dates} onChange={handleTextChange} placeholder="MM/DD/YY"/>
+        <label htmlFor="is_winner">Winner?</label>
+        <input type="checkbox" value={raffle.is_winner} onChange={handleCheckbox}/>
+
         <button type="submit"> Submit </button>
       </form>
     </section>
