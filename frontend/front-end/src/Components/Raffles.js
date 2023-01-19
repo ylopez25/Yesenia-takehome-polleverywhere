@@ -23,7 +23,7 @@ export default function Raffles() {
   return (
     <section className="Raffles">
       <article>
-        <h1>Current Raffles:</h1>
+        <h1>Select Raffle to join:</h1>
         {raffles.map((raffle) => {
           return <Raffle key={raffle.id} raffle={raffle} />;
         })}

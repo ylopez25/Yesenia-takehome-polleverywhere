@@ -4,12 +4,6 @@ import { useState } from "react";
 export default function Participant({ participant, handleDelete, handleSubmit }) {
   const [viewEditForm, toggleEditForm] = useState(false);
 
-  // let total = 0;
-  // for(const part of participant) {
-  //   total += part
-  // }
-  console.log(participant.firstname.length -1)
-
   const toggleView = () => {
     toggleEditForm(!viewEditForm);
   };

@@ -1,10 +1,29 @@
 .App {
   text-align: center;
-  display: flex;
-  justify-content: center;
   background-color: aliceblue;
+  font-family: 'sonsif';
 }
 
 .nav {
-  background-color: rgb(127, 163, 255);
+  /* background-color: rgb(127, 163, 255); */
+  display:flex;
+  justify-content: space-evenly;
+}
+
+.header {
+   font-family: red serifs;
+     background-color: rgb(127, 163, 255);
+     margin-left: 500px;
+    margin-right: 500px;
+     
+     display: flex;
+     justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
 }

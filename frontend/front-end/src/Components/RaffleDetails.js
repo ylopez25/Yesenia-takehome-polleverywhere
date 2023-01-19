@@ -41,15 +41,15 @@ export default function RaffleDetails() {
           <div>
             <h1>{raffle.rafflename}</h1>
           </div>
-          <Link to={`/raffles`}>
+          {/* <Link to={`/raffles`}>
             <button>View Raffles</button>
-          </Link>
+          </Link> */}
           <Link to={`/raffles/${id}/winner`}>
             <button>Select Winner</button>
           </Link>
-          <Link to={`/raffles/${id}/edit`}>
+          {/* <Link to={`/raffles/${id}/edit`}>
             <button>Edit Raffle</button>
-          </Link>
+          </Link> */}
           <button onClick={handleDelete}>Delete Raffle</button>
           <Participants />
         </div>

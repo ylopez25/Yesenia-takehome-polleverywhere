@@ -12,19 +12,25 @@ export default function Participants() {
   let { id } = useParams();
 
   useEffect(() => {
-    axios.get(`${API}/raffles/${id}/participants`).then((response) => {
-      setParticipants(response.data);
-    });
-  }, [id, participants]);
+    axios
+      .get(`${API}/raffles/${id}/participants`)
+      .then(
+        (response) => {
+          setParticipants(response.data);
+        },
+        (error) => console.log("get", error)
+      )
+      .catch((c) => console.warn("catch", c));
+  }, [id]);
 
 
-  /*ADD FILTER FUNCTION FOR SEARCH*/
   const search = (e) => {
     setWriting(e.target.value)
   }
 
   const filteredData = (writing) => {
     let text = writing.toLowerCase();
+    console.log(participants.firstname.toLowerCase())
     return participants.filter(el => el.firstname.toLowerCase().includes(text))
   }
 
