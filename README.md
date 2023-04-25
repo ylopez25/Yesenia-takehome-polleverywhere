@@ -1,4 +1,4 @@
-# Raffle Application
+# Raffle Application (Everyone Can Win!)
 
 # Welcome to Raffle App!
 
