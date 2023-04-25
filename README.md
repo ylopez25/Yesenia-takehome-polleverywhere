@@ -1,4 +1,4 @@
-# Yesenia-takehome-polleverywhere
+# Raffle Application
 
 # Welcome to Raffle App!
 
