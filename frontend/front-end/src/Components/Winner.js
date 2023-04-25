@@ -1,14 +1,62 @@
+// import axios from "axios";
+// import { useState, useEffect } from "react";
+// import { useParams } from "react-router-dom";
+
+// const API = process.env.REACT_APP_API_URL;
+
 export default function Winner() {
-  //create a function that will check if secret code matches
-  //if it does, run a function that will use Math.random id
+  // const [names,setNames] = useState([]);
+  // const [initialLoad, setInitialLoad] = useState(false);
+  // let { id } = useParams();
+
+// const startRaffle = ()  => {
+//     if(names.length <= 1) {
+//       return;
+//     }
+//     const randomId = Math.floor(Math.random() * names.length);
+//     const filteredNames = names.filter((name) => name !== names[randomId]);
+//     setNames(filteredNames);
+//     setInitialLoad(true);
+//   }
+
+//   useEffect(() => {
+// axios.get(`${API}/raffles/${id}/participants`).then((res) => {
+//   setNames(res.data)
+//     if(initialLoad) {
+//     const filteringTimer = setTimeout(() => {
+//       startRaffle()
+//     }, 1000);
+//     return () => clearTimeout(filteringTimer);
+//   }
+// }).catch((e) => console.warn("catch", e))
+
+//   },[id,initialLoad])
+
+//loading time
+  // if(initialLoad) {
+  //   const filteringTimer = setTimeout(() => {
+  //     startRaffle()
+  //   }, 1000);
+  //   return () => clearTimeout(filteringTimer);
+  // }
   return (
     <div>
       {/* show winner page if is_winner is false & show winner if true  */}
       <h1>Pick a Winner</h1>
       <label htmlFor="secretcode">Secret Code:</label>
       <input type="text" placeholder="secret code" />
-      <button>Pick now</button>
       <p>*Secret Token : The secret token used when creating the raffle must be provided.*</p>
+      {/* <button onClick={startRaffle}>Pick Winner</button>
+      <p>**last one is the winner</p>
+      {names.map((names,index) => (
+        <div key={index}>
+          <ul>
+            <li>{names.firstname}</li>
+          </ul>
+
+        </div>
+
+      ))} */}
     </div>
     
     //OR

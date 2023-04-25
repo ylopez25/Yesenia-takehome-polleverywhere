@@ -19,22 +19,29 @@ export default function Participants() {
           setParticipants(response.data);
         },
         (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
-  }, [id]);
-
+        )
+        .catch((c) => console.warn("catch", c));
+      }, [id]);
+      
 
   const search = (e) => {
     setWriting(e.target.value)
   }
 
-  const filteredData = (writing) => {
-    let text = writing.toLowerCase();
-    console.log(participants.firstname.toLowerCase())
-    return participants.filter(el => el.firstname.toLowerCase().includes(text))
-  }
+  //filtered functionality
+let filteredParticipants = participants;
 
-  /*POST*/
+
+if(writing) {
+  filteredParticipants = participants.filter(pt => {
+    const fullName = `${pt.firstname} ${pt.lastname}`;
+    const toLC = fullName.toLowerCase();
+    const text = writing.toLowerCase();
+    return toLC.includes(text)
+  })
+}
+
+/*POST*/
   const handleAdd = (newParticipant) => {
     axios
       .post(`${API}/raffles/${id}/participants`, newParticipant)
@@ -78,16 +85,17 @@ export default function Participants() {
       )
       .catch((c) => console.warn("catch", c));
   };
-
+console.log(filteredParticipants,"participants")
   return (
     <section className="Participants">
       <ParticipantForm handleSubmit={handleAdd} />
-      {participants.length > 1 ? (  <h1>Total Participants: {participants.length}</h1>) : (  <h1>Total Participant: {participants.length}</h1>)}
+      {/* {participants.length > 1 ? (  <h1>Total Participants: {participants.length}</h1>) : (  <h1>Total Participant: {participants.length}</h1>)} */}
       <label>Search</label>
       <input type="text" value={writing} onChange={search} placeholder="Search by first name"/>
-      {filteredData(writing).map((participant) => (
+      {filteredParticipants.map((participant) => (
         <Participant key={participant.id} participant={participant} handleSubmit={handleEdit} handleDelete={handleDelete} />
       ))}
+      {/* {filteredParticipants.length === 0 && <div> No Results found</div>} */}
     </section>
   );
 }

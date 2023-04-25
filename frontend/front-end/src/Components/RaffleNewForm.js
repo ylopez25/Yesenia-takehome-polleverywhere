@@ -56,6 +56,3 @@ export default function RaffleNewForm() {
     </section>
   );
 }
-
-
-//need to add more form properties**
