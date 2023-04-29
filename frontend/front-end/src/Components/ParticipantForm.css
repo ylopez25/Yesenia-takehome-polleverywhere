@@ -1,0 +1,30 @@
+.RegisterForm {
+    background-color: pink;
+    height: 400px;
+    width: 600px;
+    margin : auto;
+    padding: 40px;
+}
+.RegisterForm input[type=text] {
+    width:100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+.RegisterForm label {
+      color:rgba(168, 93, 61, 0.894);
+  }
+  
+.RegisterForm h1 {
+      color: rgb(107, 94, 136);
+      font-size: 20px;
+  }
+.RegisterForm button {
+    background-color:rgb(107, 94, 136);
+	padding: 4px;
+    border:none;
+	font: inherit;
+    color:white;
+	cursor: pointer;
+	outline: inherit;
+}

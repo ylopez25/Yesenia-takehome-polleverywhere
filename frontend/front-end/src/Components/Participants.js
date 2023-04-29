@@ -3,6 +3,7 @@ import ParticipantForm from "./ParticipantForm";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "./Participants.css";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -89,13 +90,13 @@ console.log(filteredParticipants,"participants")
   return (
     <section className="Participants">
       <ParticipantForm handleSubmit={handleAdd} />
-      {/* {participants.length > 1 ? (  <h1>Total Participants: {participants.length}</h1>) : (  <h1>Total Participant: {participants.length}</h1>)} */}
+      {participants.length > 1 ? (  <h1>Total Participants: {participants.length}</h1>) : (  <h1>Total Participant: {participants.length}</h1>)}
       <label>Search</label>
       <input type="text" value={writing} onChange={search} placeholder="Search by first name"/>
       {filteredParticipants.map((participant) => (
         <Participant key={participant.id} participant={participant} handleSubmit={handleEdit} handleDelete={handleDelete} />
       ))}
-      {/* {filteredParticipants.length === 0 && <div> No Results found</div>} */}
+      {filteredParticipants.length === 0 && <div> No Results found</div>}
     </section>
   );
 }

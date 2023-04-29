@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import './ParticipantForm.css'
 
 export default function ParticipantForm(props) {
   let { id } = useParams();
@@ -38,9 +39,9 @@ export default function ParticipantForm(props) {
     });
   };
   return (
-    <div className="Edit">
-      {props.children}
-      <h1>Register to Raffle:</h1>
+    <div className="RegisterForm" key={id}>
+      {/* {props.children} */}
+     <h1>Register to Raffle:</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="firstname">First Name:</label>
         <input id="firstname" value={participant.firstname} type="text" onChange={handleTextChange} placeholder="First name" required />
@@ -63,7 +64,8 @@ export default function ParticipantForm(props) {
           onChange={handleTextChange}
         />
         <br />
-        <input type="submit" />
+        <button type='submit'>Join!</button>
+        {/* <input type="submit" /> */}
       </form>
     </div>
   );
